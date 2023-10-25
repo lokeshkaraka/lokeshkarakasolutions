@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            text-align: center;
+        }
+        #calculator {
+            width: 400px;
+            margin: 0 auto;
+            padding: 60px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            box-shadow: 2px 2px 5px #888;
+            
+        }
+
+        
+        input[type="text"], input[type="button"] {
+            width: 50px;
+            height: 50px;
+            margin:auto;
+           
+        }
+         input[type = "button"]{
+           background-color: black;
+           color: white;
+}
+     input[type = "special-button"]{
+         background-color: red;
+         color: white;
+   }
+
+       
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" disabled>
+        <input type="button" value="AC" class ="special-button" onclick="clearDisplay()">
+        <br>
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="+" class ="special-button"onclick="addToDisplay('+')">
+        <br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="-" class ="special-button"onclick="addToDisplay('-')">
+        <br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="/"class ="special-button" onclick="addToDisplay('/')">
+        <br>
+        <input type="button" value="." onclick="addToDisplay('.')">
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="=" onclick="calculate('')">
+        <input type="button" value="*" class ="special-button"onclick="addToDisplay('*')">
+        <br>
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function calculate() {
+            let display = document.getElementById("display");
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
